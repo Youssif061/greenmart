@@ -5,7 +5,6 @@ import 'package:greenmart/core/styles/fonts.dart';
 import 'package:greenmart/core/widget/custom_text_form_field.dart';
 import 'package:greenmart/core/widget/main_botton.dart';
 import 'package:greenmart/features/auth/paged/SingUp_Screen.dart';
-import 'package:greenmart/features/auth/paged/Verification.dart';
 
 class Number extends StatefulWidget {
   const Number({super.key});
