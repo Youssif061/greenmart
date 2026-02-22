@@ -4,9 +4,11 @@ A new Flutter project.
 
 greenmart
 
-# Screen
+# Screens
 
 1)Splash_Screen
+
+
 <img width="507" height="940" alt="image" src="https://github.com/user-attachments/assets/5679d886-2b12-4a34-8faa-e1ba1821556b" />
 
 2)Welcome_screen
