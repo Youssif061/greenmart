@@ -7,6 +7,7 @@ import 'package:greenmart/core/styles/fonts.dart';
 import 'package:greenmart/core/widget/custom_text_form_field.dart';
 import 'package:greenmart/core/widget/custom_text_form_field_password.dart';
 import 'package:greenmart/core/widget/main_botton.dart';
+import 'package:greenmart/features/Main_APP_Screen/Main.dart';
 import 'package:greenmart/features/auth/paged/SingUp_Screen.dart';
 
 class Login_Screen extends StatefulWidget {
@@ -107,6 +108,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                   text: "Login",
                   onPressed: () {
                     if (Formkey.currentState!.validate()) {}
+                    PushReplacement(context, Main());
                   },
                 ),
                 SizedBox(height: 20),

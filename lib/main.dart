@@ -1,8 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:greenmart/core/constant/AppFont.dart';
-import 'package:greenmart/core/styles/colors.dart';
+import 'package:greenmart/core/styles/themes.dart';
 import 'package:greenmart/features/into/splashscreen.dart';
 
 void main() {
@@ -16,17 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.whitecolor,
-        fontFamily: AppFont.poppins,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primarycolor,
-          onSurface: AppColors.blackcolor,
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(foregroundColor: AppColors.primarycolor),
-        ),
-      ),
+      theme: Appthem.light,
       builder: (context, child) {
         return SafeArea(
           bottom: Platform.isAndroid ? true : false,
