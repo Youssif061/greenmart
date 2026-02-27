@@ -4,14 +4,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CustomSvgPicture extends StatelessWidget {
   const CustomSvgPicture({
     super.key,
-    required this.currentIndex,
+    this.currentIndex,
     required this.path,
     this.color,
+    this.width,
+    this.height,
   });
 
-  final int currentIndex;
+  final int? currentIndex;
   final Color? color;
   final String path;
+  final double? height;
+  final double? width;
+
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
@@ -19,6 +24,8 @@ class CustomSvgPicture extends StatelessWidget {
       colorFilter: color != null
           ? ColorFilter.mode(color!, BlendMode.srcIn)
           : null,
+      height: height,
+      width: width,
     );
   }
 }
