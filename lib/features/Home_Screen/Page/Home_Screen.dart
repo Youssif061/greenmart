@@ -42,11 +42,82 @@ class HomeScreen extends StatelessWidget {
                 Text('Exclusive Offer', style: TextStyles.Title),
                 Spacer(),
                 TextButton(
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero,
+                    padding: EdgeInsets.all(0),
+                  ),
                   onPressed: () {},
                   child: Text('See all', style: TextStyles.body),
                 ),
               ],
             ),
+            SizedBox(
+              height: 235,
+              width: double.infinity,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) => const SizedBox(width: 10),
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: 150,
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: AppColors.graykcolor),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Image.network(
+                              'https://www.vhv.rs/dpng/d/425-4254380_apples-png-image-apple-fruit-transparent-png.png',
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(height: 20),
+                        Text(
+                          'Red Apple',
+                          style: TextStyles.body.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+
+                        Text(
+                          '1kg',
+                          style: TextStyles.body.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              "\$4.99",
+                              style: TextStyles.body.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Spacer(),
+                            FloatingActionButton.small(
+                              backgroundColor: AppColors.primarycolor,
+                              foregroundColor: AppColors.whitecolor,
+                              onPressed: () {},
+                              child: Icon(Icons.add),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 50),
           ],
         ),
       ),
