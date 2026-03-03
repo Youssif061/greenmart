@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:greenmart/core/constant/AppImage.dart';
 import 'package:greenmart/core/styles/colors.dart';
 import 'package:greenmart/core/styles/fonts.dart';
 import 'package:greenmart/core/widget/custom_svg_picture.dart';
 import 'package:greenmart/core/widget/custom_text_form_field.dart';
-import 'package:greenmart/core/widget/main_botton.dart';
+import 'package:greenmart/features/Home_Screen/Data/Product_modek.dart';
+import 'package:greenmart/features/Home_Screen/widgets/item_icon.dart';
+import 'package:greenmart/features/Home_Screen/widgets/list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        toolbarHeight: 90,
+        toolbarHeight: 60,
         title: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: CustomSvgPicture(
@@ -28,97 +29,83 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: Column(
-          children: [
-            CustomTextFormField(
-              text: 'Search Store',
-              Styles: TextStyles.body,
-              Text_Styles: AppColors.graykcolor,
-              prefixIcon: Icon(Icons.search),
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Text('Exclusive Offer', style: TextStyles.Title),
-                Spacer(),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    minimumSize: Size.zero,
-                    padding: EdgeInsets.all(0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              CustomTextFormField(
+                text: 'Search Store',
+                Styles: TextStyles.body,
+                Text_Styles: AppColors.graykcolor,
+                prefixIcon: Icon(Icons.search),
+              ),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  Text("Exclusive Offer", style: TextStyles.Title),
+                  Spacer(),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.all(0),
+                    ),
+                    onPressed: () {},
+                    child: Text('See all', style: TextStyles.body),
                   ),
-                  onPressed: () {},
-                  child: Text('See all', style: TextStyles.body),
+                ],
+              ),
+              SizedBox(height: 10),
+              List_View(),
+
+              Row(
+                children: [
+                  Text("Best Selling", style: TextStyles.Title),
+                  Spacer(),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.all(0),
+                    ),
+                    onPressed: () {},
+                    child: Text('See all', style: TextStyles.body),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              List_View(),
+              SizedBox(height: 10),
+
+              Row(
+                children: [
+                  Text("Best Offer", style: TextStyles.Title),
+                  Spacer(),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.all(0),
+                    ),
+                    onPressed: () {},
+                    child: Text('See all', style: TextStyles.body),
+                  ),
+                ],
+              ),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  mainAxisExtent: 300,
+                  // childAspectRatio: 0.5,
                 ),
-              ],
-            ),
-            SizedBox(
-              height: 235,
-              width: double.infinity,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) => const SizedBox(width: 10),
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 150,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.graykcolor),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
-                      children: [
-                        Expanded(
-                          child: Center(
-                            child: Image.network(
-                              'https://www.vhv.rs/dpng/d/425-4254380_apples-png-image-apple-fruit-transparent-png.png',
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 20),
-                        Text(
-                          'Red Apple',
-                          style: TextStyles.body.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-
-                        Text(
-                          '1kg',
-                          style: TextStyles.body.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              "\$4.99",
-                              style: TextStyles.body.copyWith(
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Spacer(),
-                            FloatingActionButton.small(
-                              backgroundColor: AppColors.primarycolor,
-                              foregroundColor: AppColors.whitecolor,
-                              onPressed: () {},
-                              child: Icon(Icons.add),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
+                itemCount: offers.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ItemIcon(model: offers[index]);
                 },
               ),
-            ),
-            SizedBox(height: 50),
-          ],
+            ],
+          ),
         ),
       ),
     );

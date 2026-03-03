@@ -11,7 +11,11 @@ class Appthem {
       seedColor: AppColors.primarycolor,
       onSurface: AppColors.blackcolor,
     ),
-    appBarTheme: AppBarThemeData(backgroundColor: AppColors.whitecolor),
+    appBarTheme: AppBarThemeData(
+      backgroundColor: AppColors.whitecolor,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+    ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(foregroundColor: AppColors.primarycolor),
     ),
