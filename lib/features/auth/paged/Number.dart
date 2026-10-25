@@ -4,6 +4,7 @@ import 'package:greenmart/core/styles/colors.dart';
 import 'package:greenmart/core/styles/fonts.dart';
 import 'package:greenmart/core/widget/custom_text_form_field.dart';
 import 'package:greenmart/core/widget/main_botton.dart';
+import 'package:greenmart/features/auth/paged/OTP_Screen.dart';
 import 'package:greenmart/features/auth/paged/SingUp_Screen.dart';
 
 class Number extends StatefulWidget {
@@ -64,6 +65,7 @@ class _NumberState extends State<Number> {
                     if (fromkey.currentState!.validate()) {
                       return "Valid";
                     }
+                    PushReplacement(context, OtpScreen());
                   },
                 ),
               ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:greenmart/core/styles/colors.dart';
 import 'package:greenmart/core/styles/fonts.dart';
 import 'package:greenmart/features/Home_Screen/Data/Product_modek.dart';
